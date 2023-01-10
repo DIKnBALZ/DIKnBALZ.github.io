@@ -1,18 +1,23 @@
-<!DOCTYPE html>
 <html>
 	<head>
+		<title>DIKnBALZ - Socials</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<a href="index.html">main page</a>
-		<p>social media woo hoo!!!</p>
-        <div id="subscriber-count"></div>
+    <h1>D1KnB3LZ - Socials</h1>
+		<button id="mainpage">main page</button>
+		<script>
+			const button = document.getElementById("mainpage");
+			button.addEventListener("click", function() {window.location.href = "index.html";});
+		</script>
+    <p id="subscriber-count"></p>
+    <p id="subscriber-count2"></p>
 	</body>
 </html>
 
 
 <script>
-  function updateSubscriberCount() {
+  function updateWizSubscriberCount() {
     var xhr = new XMLHttpRequest(); // Make a request to the YouTube Data API to get the subscriber count for the channel
     xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
     xhr.onload = function() {
@@ -24,7 +29,22 @@
     };
     xhr.send();
   }
+
+  // function updateInkySubscriberCount() {
+  //   var xhr = new XMLHttpRequest(); // Make a request to the YouTube Data API to get the subscriber count for the channel
+  //   xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
+  //   xhr.onload = function() {
+  //     if (xhr.status === 200) {
+  //       var response = JSON.parse(xhr.responseText); // Parse the response
+  //       var subscriberCount = response.items[0].statistics.subscriberCount;
+  //       document.getElementById('subscriber-count2').innerHTML = 'InkyBox has ' + subscriberCount + ' subscribers';
+  //     }
+  //   };
+  //   xhr.send();
+  // }
   
-  setInterval(updateSubscriberCount, 10000); // Update the subscriber count every 10 seconds
-  updateSubscriberCount(); // Update the subscriber count when the page loads
+  setInterval(updateWizSubscriberCount, 10000); // Update the subscriber count every 10 seconds
+  updateWizSubscriberCount(); // Update the subscriber count when the page loads
+  // setInterval(updateInkySubscriberCount, 10000); // Update the subscriber count every 10 seconds
+  // updateInkySubscriberCount(); // Update the subscriber count when the page loads
 </script>

@@ -1,12 +1,30 @@
-<!DOCTYPE html>
 <html>
+	<head>
+		<title>DIKnBALZ - Coding Stuff</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
 	<body>
-		<h1>DIKnBALZ</h1>
-		<a href="index.html">main page</a>
+		<h1>D1KnB3LZ - Coding Stuff</h1>
+		<button id="mainpage">main page</button>
+		<script>
+			const button = document.getElementById("mainpage");
+			button.addEventListener("click", function() {window.location.href = "index.html";});
+		</script>
 		<p>we're porting impostor v4 to codename engine</p>
 		<p>i think thats pretty cool</p>
-		<video width="640" height="360" loop>
+		<video id="ejected" width="640" height="360" style="position:relative;" autoplay loop muted>
 			<source src="videos/ejected.mp4" type="video/mp4">
 		</video>
+		<br>
+		<br>
+		<button id="mutebutton">unmute</button>
+		<script>
+			const video = document.getElementById("ejected");
+			const buttonn = document.getElementById("mutebutton");
+			buttonn.addEventListener("click", function() {
+				video.muted = !video.muted;
+				buttonn.textContent = video.muted ? "unmute" : "mute";
+			});
+		</script>
 	</body>
 </html>
