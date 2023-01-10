@@ -3,7 +3,7 @@
 		<title>DIKnBALZ - Coding Stuff</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body background="images/background.png">
+	<body>
 		<h1>D1KnB3LZ - Coding Stuff</h1>
 		<button id="mainpage">main page</button>
 		<script>
@@ -12,18 +12,36 @@
 		</script>
 		<p>we're porting impostor v4 to codename engine</p>
 		<p>i think thats pretty cool</p>
-		<video id="ejected" width="640" height="360" style="position:relative;" autoplay loop muted>
+		<video id="ejected" width="640" height="360" autoplay loop muted>
 			<source src="videos/ejected.mp4" type="video/mp4">
 		</video>
 		<br>
 		<br>
+		<button id="playbutton">pause</button>
 		<button id="mutebutton">unmute</button>
+		<!-- <slidecontainter>
+			<input type="range" min="1" max="100" value="50" class="slider" id="volumeRange">
+		</slidecontainter> -->
 		<script>
 			const video = document.getElementById("ejected");
 			const buttonn = document.getElementById("mutebutton");
+			const buttonn2 = document.getElementById("playbutton");
+			// const volumeShit = document.getElementById("volumeRange");
 			buttonn.addEventListener("click", function() {
 				video.muted = !video.muted;
 				buttonn.textContent = video.muted ? "unmute" : "mute";
+			});
+			buttonn2.addEventListener("click", function() {
+				if (video.paused) {
+					video.play();
+					video.style.filter = "brightness(100%)";
+					buttonn2.textContent = "pause";
+				}
+				else {
+					video.pause();
+					video.style.filter = "brightness(50%)";
+					buttonn2.textContent = "play";
+				}
 			});
 		</script>
 	</body>

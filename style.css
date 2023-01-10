@@ -1,40 +1,121 @@
 body {
-    background-color: #4f4e57;
     color: #ffffff;
-    font-family:cursive, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    text-shadow: 0px 4px #00000071;
+    text-shadow: 0px 4px 5px #00000080;
+    background:url("images/background.png");
+    max-width: 100%;
+    height: auto;
 }
 
 h1 {
     font-size: 34;
     font-weight: bold;
+    max-width: 100%;
+    height: auto;
 }
 
 h2 {
     font-size: 24;
     font-weight: bold;
+    max-width: 100%;
+    height: auto;
 }
 
 h3 {
     font-size: 22;
     font-weight: bold;
+    max-width: 100%;
+    height: auto;
 }
 
 p {
     font-size: 18;
     font-weight: medium;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    font-size: 18;
+    font-weight: medium;
+    color: #b6beff;
+    max-width: 100%;
+    height: auto;
 }
 
 div {
     font-size: 18;
     font-weight: medium;
+    max-width: 100%;
+    height: auto;
 }
 
 button {
-    font-family:cursive, sans-serif;
     font-size: 18;
     font-weight: medium;
     background-color: #0000007e;
     color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px #00000080;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+video {
+    border-radius: 10px;
+    box-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 4px 5px #00000080;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    border-radius: 10px;
+    box-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 4px 5px #00000080;
+    max-width: 100%;
+    height: auto;
+}
+
+.slider {
+    appearance: none;
+    border-radius: 7.5px;  
+    background: #0000007e;
+    outline: none;
+    transition: opacity .2s;
+    box-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, 0px 4px 5px #00000080;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15;
+    height: 15;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* Styles for the game board */
+#game {
+    width: 500px;
+    height: 300px;
+    background-color: black;
+    position: relative;
+}
+
+/* Styles for the ball */
+#ball {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Styles for the paddles */
+.paddle {
+    width: 10px;
+    height: 50px;
+    background-color: white;
+    position: absolute;
 }

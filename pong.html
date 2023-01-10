@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>DIKnBALZ - Pong</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1>D1KnB3LZ - Pong</h1>
+		<button id="mainpage">main page</button>
+		<script>
+			const button = document.getElementById("mainpage");
+			button.addEventListener("click", function() {window.location.href = "index.html";});
+		</script>
+<div id="game">
+	<div id="ball"></div>
+	<div class="paddle"></div>
+	<div class="paddle"></div>
+      </div>
+  
+      <script>
+	// Get the game board and the ball
+	var game = document.getElementById("game");
+	var ball = document.getElementById("ball");
+  
+	// Get the paddles
+	var paddles = document.getElementsByClassName("paddle");
+	var paddle1 = paddles[0];
+	var paddle2 = paddles[1];
+  
+	// Initial position of the ball
+	var xPos = 250;
+	var yPos = 150;
+  
+	// Initial velocity of the ball (in pixels per frame)
+	var xVel = 2;
+	var yVel = 2;
+  
+	// Function to update the position of the ball
+	function update() {
+	  // Update the position of the ball
+	  xPos += xVel;
+	  yPos += yVel;
+  
+	  // Check if the ball hit the left or right wall
+	  if (xPos < 0 || xPos > 490) {
+	    xVel = -xVel;
+	  }
+  
+	  // Check if the ball hit the top or bottom wall
+	  if (yPos < 0 || yPos > 290) {
+	    yVel = -yVel;
+	  }
+  
+	  // Check if the ball hit paddle 1
+	  if (xPos < 15 && yPos > paddle1.offsetTop && yPos < paddle1.offsetTop + paddle1.offsetHeight) {
+	    xVel = -xVel;
+	  }
+  
+	  // Check if the ball hit paddle 2
+	  if (xPos > 485 && yPos > paddle2.offsetTop && yPos < paddle2.offsetTop + paddle2.offsetHeight) {
+	    xVel = -xVel;
+	  }
+  
+	  // Move the ball to its new position
+	  ball.style.left = xPos + "px";
+	  ball.style.top = yPos + "px";
+
+	  // Keep the animation going
+	  requestAnimationFrame(update);
+	}
+
+	// Initial position of the paddles
+	paddle1.style.top = "125px";
+	paddle2.style.top = "125px";
+	paddle2.style.left = "485px";
+
+	// Start the animation
+	update();
+</script>
+	</body>
+</html>

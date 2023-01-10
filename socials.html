@@ -3,7 +3,7 @@
 		<title>DIKnBALZ - Socials</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body background="images/background.png">
+	<body>
     <h1>D1KnB3LZ - Socials</h1>
 		<button id="mainpage">main page</button>
 		<script>
@@ -36,7 +36,7 @@
       if (nix.status === 200) {
         var response = JSON.parse(nix.responseText);
         var subscriberCount = response.items[0].statistics.subscriberCount;
-        document.getElementById('subs-nix').innerHTML = '<a href="https://www.youtube.com/@InkyBox">Inkybox</a> has ' + subscriberCount + ' subscribers.';
+        document.getElementById('subs-nix').innerHTML = '<a href="https://www.youtube.com/@InkyBox">InkyBox</a> has ' + subscriberCount + ' subscribers.';
       }
     };
     nix.send();
