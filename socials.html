@@ -10,41 +10,38 @@
 			const button = document.getElementById("mainpage");
 			button.addEventListener("click", function() {window.location.href = "index.html";});
 		</script>
-    <p id="subscriber-count"></p>
-    <p id="subscriber-count2"></p>
+    <p id="subs-wiz"> </p>
+    <p id="subs-nix"> </p>
 	</body>
 </html>
 
 
+
 <script>
-  function updateWizSubscriberCount() {
-    var xhr = new XMLHttpRequest(); // Make a request to the YouTube Data API to get the subscriber count for the channel
-    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText); // Parse the response
+  function updateSubs() {
+    var wiz = new XMLHttpRequest();
+    wiz.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
+    wiz.onload = function() {
+      if (wiz.status === 200) {
+        var response = JSON.parse(wiz.responseText);
         var subscriberCount = response.items[0].statistics.subscriberCount;
-        document.getElementById('subscriber-count').innerHTML = 'Wizard has ' + subscriberCount + ' subscribers';
+        document.getElementById('subs-wiz').innerHTML = '<a href="https://www.youtube.com/@wm441">Wizard</a> has ' + subscriberCount + ' subscribers.';
       }
     };
-    xhr.send();
+    wiz.send();
+    
+    var nix = new XMLHttpRequest();
+    nix.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCIGc2s5hSasAKn81-sHEwQA&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
+    nix.onload = function() {
+      if (nix.status === 200) {
+        var response = JSON.parse(nix.responseText);
+        var subscriberCount = response.items[0].statistics.subscriberCount;
+        document.getElementById('subs-nix').innerHTML = '<a href="https://www.youtube.com/@InkyBox">Inkybox</a> has ' + subscriberCount + ' subscribers.';
+      }
+    };
+    nix.send();
   }
-
-  // function updateInkySubscriberCount() {
-  //   var xhr = new XMLHttpRequest(); // Make a request to the YouTube Data API to get the subscriber count for the channel
-  //   xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
-  //   xhr.onload = function() {
-  //     if (xhr.status === 200) {
-  //       var response = JSON.parse(xhr.responseText); // Parse the response
-  //       var subscriberCount = response.items[0].statistics.subscriberCount;
-  //       document.getElementById('subscriber-count2').innerHTML = 'InkyBox has ' + subscriberCount + ' subscribers';
-  //     }
-  //   };
-  //   xhr.send();
-  // }
   
-  setInterval(updateWizSubscriberCount, 10000); // Update the subscriber count every 10 seconds
-  updateWizSubscriberCount(); // Update the subscriber count when the page loads
-  // setInterval(updateInkySubscriberCount, 10000); // Update the subscriber count every 10 seconds
-  // updateInkySubscriberCount(); // Update the subscriber count when the page loads
+  setInterval(updateSubs, 10000);
+  updateSubs();
 </script>
