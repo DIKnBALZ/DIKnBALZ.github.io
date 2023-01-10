@@ -13,9 +13,8 @@
 
 <script>
   function updateSubscriberCount() {
-    var channelId = 'UC5KDN7LIoh5ymQ7qdImi6Gw'; // wizard's channel
     var xhr = new XMLHttpRequest(); // Make a request to the YouTube Data API to get the subscriber count for the channel
-    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + channelId + '&key=YOUR_API_KEY');
+    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC5KDN7LIoh5ymQ7qdImi6Gw&key=AIzaSyCl8EZX3Cx4NpQyozFkcimmhYLUEqaR0JE');
     xhr.onload = function() {
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.responseText); // Parse the response
