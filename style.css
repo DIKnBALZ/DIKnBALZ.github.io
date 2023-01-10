@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    font-size: 18;
+    font-weight: medium;
+    text-align: center;
+}
+
+div {
+    font-size: 18;
+    font-weight: medium;
+    text-align: center;
+}
+
+button {
+    font-size: 18;
+    font-weight: medium;
+    text-align: center;
+}
