@@ -12,6 +12,10 @@
 		<button id="pong">pong</button>
 		<button id="flip">dont click me</button>
 		<button id="fuckoff">Fuck You Baltimore!</button>
+		<button id="lightmode" class="setting">light mode</button>
+		<audio id="flashbangbegin" onended="doThing()">
+			<source src="audio/flashbangbegin.mp3">
+		</audio>
 		<script>
 			const button = document.getElementById("codingstuff");
 			const button2 = document.getElementById("socials");
@@ -20,6 +24,7 @@
 			const button5 = document.getElementById("pong");
 			const button6 = document.getElementById("flip");
 			const button7 = document.getElementById("fuckoff");
+			const button8 = document.getElementById("lightmode");
 			button.addEventListener("click", function() {window.location.href = "codingstuff.html";});
 			button2.addEventListener("click", function() {window.location.href = "socials.html";});
 			button3.addEventListener("click", function() {window.location.href = "reviews.html";});
@@ -27,8 +32,30 @@
 			button5.addEventListener("click", function() {window.location.href = "pong.html";});
 			button6.addEventListener("click", function() {document.body.style.scale == 1 ? document.body.style.scale = -1 : document.body.style.scale = 1});
 			button7.addEventListener("click", function() {window.location.href = "fuckoff.html";});
+			button8.addEventListener("click", function() {
+				if (document.body.style.backgroundImage != "none") {
+					var sound = document.getElementById("flashbangbegin");
+					sound.play();
+				} else {
+					document.body.style.backgroundImage = "url(images/background.png)";
+				}
+			});
+
+			function doThing() {
+				if (document.body.style.backgroundImage != "none") {
+					document.body.style.backgroundColor = "#ffffff";
+					document.body.style.backgroundImage = "none";
+					var sound = document.createElement("audio");
+					sound.src = "audio/flashbang.mp3";
+					sound.play();
+				}
+			}
 		</script>
 		<p>welcome to the official dick and balls website</p>
 		<p>we are professionals i swear</p>
+		<br>
+		DIKnBALZ is ran by <a href="https://twitter.com/WizardMantis441">wizardmantis441</a> and <a href="https://twitter.com/_InkyBox_">inkybox</a>
+		<br>
+		the DIKnBALZ twitter can be found <a href="https://twitter.com/D1KnB4LZ_">here</a>
 	</body>
 </html>
